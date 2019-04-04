@@ -78,19 +78,3 @@ DELETE /transactions
 
 This endpoint causes all existing transactions to be deleted
 The endpoint should accept an empty request body and return a 204 status code.
-Requirements
-These are the additional requirements for the solution:
-You are free to choose any JVM language to complete the challenge in, but your application has to run in Maven.
-The API has to be threadsafe with concurrent requests.
-The solution has to work without a database (this also applies to in-memory databases). Unit tests are *mandatory*.
-mvn clean install and mvn clean integration-test must complete successfully.
-Please ensure that no changes are made to the src/it folder since they contain automated tests that will be used to evaluate the solution.
-
-Got below negative feedback.
- - not efficient thread-safe structure(copy-on-write-list and then iteration over the whole history of transactions)
- - not enough checks in tests: lacking of assertions on actual values
- - validator returns http codes
- - not good separation of concerns, yields to non-clean code
- - no memory cleanup
- 
- Need minimum 80% score to pass this coding round
