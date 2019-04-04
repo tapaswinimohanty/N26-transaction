@@ -22,20 +22,21 @@ import com.n26.dto.Statistic;
 import com.n26.dto.TransactionData;
 
 /**
- * @author natanwar
+ * @author tapaswini
  *
  */
 @Component
 public class TransactionDataStore {
 
-	private CopyOnWriteArrayList<TransactionData> dataStore;
+    private Queue<TransactionData> dataStore ;
+
 
 	private static final long ONE_MIN = 60 * 1000;
 
 	public static final String UTC_TIMEZONE = "GMT+00:00";
 
 	public TransactionDataStore() {
-		dataStore = new CopyOnWriteArrayList<>();
+		dataStore =  new ConcurrentLinkedQueue<TransactionData>();
 	}
 
 	public void save(TransactionData transactionData) {
